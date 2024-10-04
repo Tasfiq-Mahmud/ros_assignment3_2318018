@@ -1,0 +1,18 @@
+<<?xml version="1.0"?>
+<launch>
+   <!-- Launch the rosserial node for the driver Arduino --> 
+    <node pkg="rossserial_python" type="serial_node.py" name="driver_node">
+        <param name="port" value="/dev/ttySB0"/>
+        <param name="baud" value="57600"/>
+    </node>
+
+    <!-- Launch the rosserial node for the sensor Arduino -->
+    <node pkg="rosserial_python" type="serial_node.py" name="sensor_node">
+        <param name="port" value="/dev/ttyUSB1"/>
+        <param name="baud" value="57600"/>
+        
+    </node>
+
+    <!-- Launch the robot_controller python node -->
+    <node pkg="rosserial_2318018" type="controller.py" name="robot_controller"/>
+</launch>
